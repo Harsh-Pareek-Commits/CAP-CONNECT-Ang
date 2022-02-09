@@ -1,0 +1,34 @@
+body {
+    background: #eee
+    
+}
+
+.shadow-none {
+    box-shadow: none
+}
+
+.name {
+    color: #141411;
+    font-weight: bold;
+}
+
+.cursor {
+    cursor: pointer
+}
+
+.textarea {
+    resize: none
+}
+.btn{
+  margin-left: 5px;
+  margin-bottom: 10px;
+  background-color:#BBA14F;
+    
+
+      
+}
+.col-lg-4{
+    border-radius:15px 15px 15px 15px;
+    border-style: solid;
+    border-color: black;
+}

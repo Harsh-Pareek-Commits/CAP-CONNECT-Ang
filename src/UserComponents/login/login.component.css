@@ -1,0 +1,13 @@
+.card{
+  background-color: black;
+  color: white;
+  border-radius: 25px;
+}
+.card-body{
+  padding: 30px;
+  text-align: center;
+}
+.login .h2{
+  margin-bottom: 2;
+  font-weight: bold;
+}

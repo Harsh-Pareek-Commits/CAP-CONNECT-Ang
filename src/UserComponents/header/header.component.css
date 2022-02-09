@@ -1,0 +1,23 @@
+body {
+    background: linear-gradient(90deg, rgb(200, 198, 64) 0%, 
+                rgb(121, 110, 9) 35%, rgba(45, 1, 62, 1) 100%);
+  }
+  .navbar-brand{
+    font-family: 'Luminari', cursive; 
+    /* color: #BBA14F; */
+    text-shadow: 0 0 10px rgb(250, 231, 168), 0 0 20px rgb(252, 228, 121), 0 0 42px rgb(245, 225, 43), 0 0 82px rgb(209, 206, 39),0 0 92px rgb(255, 251, 0);
+	color: white;
+	font-size: 30px;
+	text-align: center;	  
+  }
+  .nav-item{
+    color: #BBA14F;
+    font-size: large;
+  }
+  .img-fluid.rounded{
+    /* box-shadow: 0 0 10px rgb(250, 231, 168), 0 0 40px rgb(252, 228, 121), 0 0 80px rgb(255, 251, 0); */
+    border-radius: 100%;
+     width:50px;
+  }
+  
+  

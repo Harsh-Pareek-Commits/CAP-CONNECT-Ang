@@ -13,6 +13,9 @@ import { LoginComponent } from 'src/UserComponents/login/login.component';
 import { NotFoundComponent } from 'src/UserComponents/not-found/not-found.component';
 import { HomeComponent } from 'src/UserComponents/home/home.component';
 import { SignUpComponent } from 'src/UserComponents/sign-up/sign-up.component';
+import { HeaderComponent } from 'src/UserComponents/header/header.component';
+import { FooterComponent } from 'src/UserComponents/footer/footer.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const appRoutes : Routes= [
   {path : 'query', component :QueryComponent},
@@ -32,7 +35,9 @@ const appRoutes : Routes= [
     LoginComponent,
     NotFoundComponent,
     HomeComponent,
-    SignUpComponent
+    SignUpComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +48,8 @@ const appRoutes : Routes= [
       positionClass : 'toast-top-center',
       preventDuplicates : true,
     }),
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],

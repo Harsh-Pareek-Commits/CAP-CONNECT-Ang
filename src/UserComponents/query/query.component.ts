@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Category } from 'src/EntityModels/category';
 import { Query } from 'src/EntityModels/query';
+import { CategoryService } from 'src/Services/category.service';
 import { QueryService } from 'src/Services/query.service';
+import { FormControl, FormGroup,FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-query',
@@ -11,8 +14,10 @@ import { QueryService } from 'src/Services/query.service';
 })
 export class QueryComponent implements OnInit {
   queryList!:Query[]
+  catList! :Category[]
+  addQueryForm! :FormGroup
 
-  constructor(private queryService: QueryService, private toastr: ToastrService,private router: Router) { }
+  constructor(private queryService: QueryService, private toastr: ToastrService,private router: Router, private categoryService: CategoryService, private formBuilder : FormBuilder) { }
   getQueries(){
     this.queryService.viewAllQuery().subscribe(data=>{
       this.queryList=data
@@ -33,9 +38,41 @@ export class QueryComponent implements OnInit {
     }
     )
   }
+  getCategory(){
+    this.categoryService.viewAllCategory().subscribe(data=>{
+    this.catList=data
+    console.log(this.catList)
+  },
+  (error)=>{
+    if(error.status==404){
+      this.toastr.info('No Category Found')
+    }
+    else if(error.status==403){
+      this.toastr.error('Please log in first');
+      this.router.navigate(["/login"])
+    }
+    else{
+      this.toastr.error('Something went wrong!');
+      console.log(error);
+    }
+  }
+  )
 
+  }
+  initForm(){
+    this.addQueryForm=this.formBuilder.group({
+      queryTitle:["",[Validators.required]],
+      queryBody:["",[Validators.required]],
+      queryCategory:["",[Validators.required]]
+
+    })
+  }
+postQuery(){
+
+}
   ngOnInit(): void {
     this.getQueries()
+    this.getCategory()
   }
 
 }

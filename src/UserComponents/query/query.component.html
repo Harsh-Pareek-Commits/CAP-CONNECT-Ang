@@ -5,35 +5,43 @@
     <div class="query-image">
         <img src="assets\logo.png" />
     </div>
-    <form method="post">
+    <div class="question">
+    <form [formGroup]="addQueryForm" (ngSubmit)="postQuery()">
         <h3>Drop a Query</h3>
-        <div class="row  d-flex justify-content-center align-items-center text-center">
-            <div class="col-md-6 align-self-center">
-                <div class="form-group">
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                          Category
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                          <li><a class="dropdown-item" href="#">Java</a></li>
-                          <li><a class="dropdown-item" href="#">Python</a></li>
-                          <li><a class="dropdown-item" href="#">C</a></li>
-                        </ul>
-                      </div>
-                      <br>
-                      <div class="form-group">
-                    <input type="text" name="txtName" class="form-control" placeholder="Title *" value="" />
+        <div class="row  d-flex ">
+            <div class="col align-self-center" >
+
+                <!-- <div class="form-group query-title">
+            
+                  <label for="exampleFormControlInput1" >Title</label>
+                  <input type="text" class="form-control" id="title" placeholder="Query title" formControlName="queryTitle" [ngClass]="{'is-invalid': submitted && control.queryTitle.errors}" >
+              <div *ngIf="submitted && control.queryTitle.errors" class="text-warning">
+                  <div *ngIf="control.queryTitle.errors.required">Title required</div>
+              </div>
+           
+                 
+                </div> -->
+                <div class="form-group query-cat">
+                  <label for="exampleFormControlSelect1 ">Category</label>
+                  <select class="form-control" id="exampleFormControlSelect1" placeholder="select">
+                    <option selected>select</option>
+                    <option *ngFor="let cat of catList">{{cat.cate_name}}</option>
+                    
+                  </select>
                 </div>
-                    <input type="submit" name="btnSubmit" class="btnQuery" value="Post Query" />
+                
+                <div class="form-group query-body" >
+                  <label for="exampleFormControlTextarea1">Your Question</label>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
                 </div>
-            </div>
-            <div class="col-md-6 my-auto">
-                <div class="form-group">
-                    <textarea name="txtMsg" class="form-control" placeholder="Your Question*" style="width: 100%; height: 150px;"></textarea>
+                <div class="form-group " >
+                  <input type="submit" name="btnSubmit" class="btnQuery" value="Post Query" />
                 </div>
-            </div>
-        </div>
+              
+             </div>
+        </div> 
     </form>
+    </div>
    </div>
   
   <div class=" display-query"> 
@@ -46,7 +54,7 @@
                 <br>
                 <h5 class="card-title">{{(query.title)}} </h5>
                 <p class="card-text">{{(query.query_body)}}</p>
-                <a href="#" class="btn btn-light">View</a>
+                <a href="answer" class="btn btn-primary">View</a>
               </div>
           </div>
           
