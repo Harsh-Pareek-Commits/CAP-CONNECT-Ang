@@ -16,15 +16,22 @@ import { SignUpComponent } from 'src/UserComponents/sign-up/sign-up.component';
 import { HeaderComponent } from 'src/UserComponents/header/header.component';
 import { FooterComponent } from 'src/UserComponents/footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AboutComponent } from 'src/UserComponents/about/about.component';
+import { AddCategoryComponent } from 'src/AdminComponents/add-category/add-category.component';
+import { ViewQueryComponent } from 'src/AdminComponents/view-query/view-query.component';
+import { ViewUsersComponent } from 'src/AdminComponents/view-users/view-users.component';
 
 const appRoutes : Routes= [
   {path : 'query', component :QueryComponent},
   {path : 'answer', component :AnswerComponent},
   {path : 'login', component :LoginComponent},
   {path : 'signUp', component :SignUpComponent},
+  {path : 'about', component :AboutComponent},
   {path : '', component :HomeComponent},
   {path : '404', component : NotFoundComponent},
-  {path : '**', redirectTo:'/404'},
+  // {path : '**', redirectTo:'/404'},
+  {path : 'answer/:id', component :AnswerComponent},
+  
 ]
 
 @NgModule({
@@ -37,7 +44,11 @@ const appRoutes : Routes= [
     HomeComponent,
     SignUpComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    AboutComponent,
+    AddCategoryComponent,
+    ViewQueryComponent,
+    ViewUsersComponent
   ],
   imports: [
     BrowserModule,

@@ -17,7 +17,7 @@
                   <input type="text" class="form-control" id="title" placeholder="Query title" formControlName="queryTitle" [ngClass]="{'is-invalid': submitted && control.queryTitle.errors}" >
               <div *ngIf="submitted && control.queryTitle.errors" class="text-warning">
                   <div *ngIf="control.queryTitle.errors.required">Title required</div>
-              </div>
+              </div> 
            
                  
                 </div> -->
@@ -54,7 +54,7 @@
                 <br>
                 <h5 class="card-title">{{(query.title)}} </h5>
                 <p class="card-text">{{(query.query_body)}}</p>
-                <a href="answer" class="btn btn-primary">View</a>
+                <a (click)="viewQuery(query.post_id)" class="btn btn-primary">View</a>
               </div>
           </div>
           

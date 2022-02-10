@@ -21,8 +21,8 @@ export class AnswerService {
   viewAnswer(id:number):Observable<Answer>{
    return this.http.get<Answer>(`${baseurl}answer/view/${id}`);
   }
-  viewAllAnswer():Observable<Answer[]>{
-   return this.http.get<Answer[]>(`${baseurl}answer/view`);
+  viewAllAnswer(id:number):Observable<Answer[]>{
+   return this.http.get<Answer[]>(`${baseurl}answer/view/${id}`);
   }
   updateAnswer(Answer:Answer, id:number):Observable<Answer>{
     return this.http.put<Answer>(`${baseurl}answer/update/${id}`,Answer);

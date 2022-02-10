@@ -17,7 +17,15 @@ export class QueryComponent implements OnInit {
   catList! :Category[]
   addQueryForm! :FormGroup
 
-  constructor(private queryService: QueryService, private toastr: ToastrService,private router: Router, private categoryService: CategoryService, private formBuilder : FormBuilder) { }
+  constructor( private queryService: QueryService, private toastr: ToastrService,private router: Router, private categoryService: CategoryService, private formBuilder : FormBuilder) { }
+  
+  ngOnInit(): void {
+    this.initForm()
+    this.getQueries()
+    this.getCategory()
+
+  }
+
   getQueries(){
     this.queryService.viewAllQuery().subscribe(data=>{
       this.queryList=data
@@ -38,6 +46,7 @@ export class QueryComponent implements OnInit {
     }
     )
   }
+
   getCategory(){
     this.categoryService.viewAllCategory().subscribe(data=>{
     this.catList=data
@@ -57,8 +66,13 @@ export class QueryComponent implements OnInit {
     }
   }
   )
+  }
+
+  viewQuery(id:any){
+    this.router.navigate(['/answer',id])
 
   }
+
   initForm(){
     this.addQueryForm=this.formBuilder.group({
       queryTitle:["",[Validators.required]],
@@ -67,12 +81,12 @@ export class QueryComponent implements OnInit {
 
     })
   }
+
+  get control(){
+    return this.addQueryForm.controls;
+  }
+
 postQuery(){
 
 }
-  ngOnInit(): void {
-    this.getQueries()
-    this.getCategory()
-  }
-
 }
