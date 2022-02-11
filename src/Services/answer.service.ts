@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Answer } from 'src/EntityModels/answer';
+import { Query } from 'src/EntityModels/query';
 import { baseurl } from 'src/environments/environment';
 
 @Injectable({
@@ -27,4 +28,7 @@ export class AnswerService {
   updateAnswer(Answer:Answer, id:number):Observable<Answer>{
     return this.http.put<Answer>(`${baseurl}answer/update/${id}`,Answer);
    }
+  //  viewAnswerById(Query : Query,id:number):Observable<Query>{
+     
+  //  }
 }
