@@ -28,7 +28,7 @@ export class AnswerService {
   updateAnswer(Answer:Answer, id:number):Observable<Answer>{
     return this.http.put<Answer>(`${baseurl}answer/update/${id}`,Answer);
    }
-  //  viewAnswerById(Query : Query,id:number):Observable<Query>{
-     
-  //  }
+   viewAllAnswerbyPostId(id:number):Observable<Answer[]>{
+    return this.http.get<Answer[]>(`${baseurl}answer/viewBypostId/${id}`);
+   }
 }

@@ -46,7 +46,7 @@ answers! : Answer[]
         }
         }
         )
-        this.answerService.viewAllAnswer(this.queryId).subscribe(data=>{
+        this.answerService.viewAllAnswerbyPostId(this.queryId).subscribe(data=>{
           this.answers=data;
         },
         (error)=>{

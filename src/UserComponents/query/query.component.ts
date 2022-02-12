@@ -16,7 +16,7 @@ export class QueryComponent implements OnInit {
   queryList!:Query[]
   catList! :Category[]
   addQueryForm! :FormGroup
-
+  submitted = false;
   constructor( private queryService: QueryService, private toastr: ToastrService,private router: Router, private categoryService: CategoryService, private formBuilder : FormBuilder) { }
   
   ngOnInit(): void {
@@ -87,6 +87,27 @@ export class QueryComponent implements OnInit {
   }
 
 postQuery(){
+  this.submitted=true
+
+  if(this.addQueryForm.valid){
+    var today = new Date();
+      var month
+      if((today.getMonth() + 1)<10){
+        month="0"+(today.getMonth() + 1);
+      }else{
+        month=(today.getMonth() + 1);  
+      }
+      var dat
+      if(today.getDate()<10){
+        dat="0"+today.getDate()
+      }
+      else{
+        dat=today.getDate()
+      }
+      var date = today.getFullYear() + '-' + month + '-' + dat;
+      
+    var question=new Query("0",this.addQueryForm.get('queryTitle')?.value,this.addQueryForm.get('queryBody')?.value,date,"0")
+  }
 
 }
 }

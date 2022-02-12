@@ -15,8 +15,13 @@
                 <h6>Suggested answers:</h6>
                 <div class="bg-light p-2" *ngFor="let answer of answers">
                     <br>
-                    <div class="d-flex flex-row align-items-start"><img class="rounded-circle" src="../../assets/avatar5.png" width="40">&nbsp;&nbsp;<p>{{answer.ans_body}}</p></div>
-         
+                    
+                    
+                    
+                    <div class="d-flex flex-row align-items-start"><img class="rounded-circle" src="../../assets/avatar5.png" width="40">&nbsp;&nbsp;<p>{{(answer.user)?.name}}</p></div>
+                    <div class="mt-2">
+                        <p class="comment-text">{{answer.ans_body}}</p>
+                    </div>
                 </div>
             </div>
         </div>

@@ -6,13 +6,13 @@
                   <form class="box" [formGroup]="loginForm" (ngSubmit)="loginProcess()">
                       <h1>Login</h1>
                       <p class="text-muted"> Please enter your USERNAME and password!</p>
-                      <input type="text" name="" placeholder="Username" formControlName="email" [ngClass]="{'is-invalid': submitted && control.email.errors}" >
-                      <div *ngIf="submitted && control.email.errors" class="text-warning">
-                          <div *ngIf="control.email.errors.required">Username required</div> 
+                      <input type="text" name="" placeholder="Username" formControlName="email" [ngClass]="{'is-invalid': submitted && control['email'].errors}" >
+                      <div *ngIf="submitted && control['email'].errors" class="text-warning">
+                          <div *ngIf="control['email'].errors['required']">Username required</div> 
                       </div>
-                      <input type="password" name="" placeholder="Password" formControlName="password" [ngClass]="{'is-invalid': submitted && control.password.errors}">
-                      <div *ngIf="submitted && control.password.errors" class="text-warning">
-                          <div *ngIf="control.password.errors.required">Password required</div> 
+                      <input type="password" name="" placeholder="Password" formControlName="password" [ngClass]="{'is-invalid': submitted && control['password'].errors}">
+                      <div *ngIf="submitted && control['password'].errors" class="text-warning">
+                          <div *ngIf="control['password'].errors['required']">Password required</div> 
                       </div>
                       <a class="forgot text-muted" href="#">Forgot password?</a>
                       <input type="submit" name="" value="Login">
